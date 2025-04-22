@@ -2,16 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>User App</title>
+    <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body>
-    <h1>User List</h1>
-    <form action="/addUser" method="post">
-        Name: <input name="name" />
-        Email: <input name="email" />
-        <button type="submit">Add</button>
-    </form>
-    <ul>
-        <li th:each="user : ${users}" th:text="${user.name + ' - ' + user.email}"></li>
-    </ul>
+    <div class="container">
+        <h1>User List</h1>
+        <form action="/addUser" method="post" class="user-form">
+            <label for="name">Name:</label>
+            <input id="name" name="name" type="text" required />
+            <label for="email">Email:</label>
+            <input id="email" name="email" type="email" required />
+            <button type="submit">Add</button>
+        </form>
+        <ul class="user-list">
+            <li th:each="user : ${users}" th:text="${user.name + ' - ' + user.email}"></li>
+        </ul>
+    </div>
 </body>
 </html>
